@@ -12,9 +12,9 @@ open class NavigationControllerContainer<Presenter: NavigationControllerPresente
     // MARK: -
     // MARK: Variables
     
-    let presenter: Presenter
-    let flowNavigation: UINavigationController
+    public let flowNavigation: UINavigationController
     
+    let presenter: Presenter
     private let flowNavigationDelegate: FlowNavigationDelegate<Presenter>
     
     // MARK: -
@@ -33,14 +33,14 @@ open class NavigationControllerContainer<Presenter: NavigationControllerPresente
         self.setup()
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: -
     // MARK: Life Cycle
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         self.addContainerController()

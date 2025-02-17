@@ -7,11 +7,11 @@
 
 import UIKit
 
-open protocol NavigationControllerPresenter {
+public protocol NavigationControllerPresenter {
     
     var controllerAnimatedTransitioning: NavigationCoordinatorAnimatorType? { get }
 }
 
-open protocol NavigationCoordinatorAnimatorType: UIViewControllerAnimatedTransitioning {
+public protocol NavigationCoordinatorAnimatorType: UIViewControllerAnimatedTransitioning {
     
 }
