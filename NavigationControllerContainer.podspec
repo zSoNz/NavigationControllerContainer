@@ -4,10 +4,10 @@ Pod::Spec.new do |s|
   s.swift_version = "5.0"
   s.summary   = "UIViewController subclass to contain inside UINavigationController instance."
   s.description  = "A lightweight Swift library for managing navigation within a container-based architecture using UINavigationController."
-  s.homepage  = "https://github.com/zSoNz/NavigationControllerContainer"
+  s.homepage  = "https://github.com/zSoNz/NavigationControllerContainer.git"
   s.license   = { :type => "New BSD", :file => "LICENSE" }
   s.author    = { "Bohdan" => "xzsonzx@gmail.com" }
-  s.source    = { :git => "https://github.com/zSoNz/NavigationControllerContainer",
+  s.source    = { :git => "https://github.com/zSoNz/NavigationControllerContainer.git",
                   :tag => s.version.to_s }
 
   # Platform setup
