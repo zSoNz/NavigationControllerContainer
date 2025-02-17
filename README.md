@@ -10,7 +10,7 @@ A lightweight Swift library for managing navigation within a container-based arc
 
 ## Installation
 
-PulseTabBar is available through CocoaPods. To install it, simply add the following line to your Podfile:
+NavigationControllerContainer is available through CocoaPods. To install it, simply add the following line to your Podfile:
 ```ruby
 pod "NavigationControllerContainer"
 ```
