@@ -17,10 +17,35 @@ pod "NavigationControllerContainer"
 
 ## Usage
 
-### Creating a Container with Default Presenter
+### Creating a Container
+
+You can inherit your class (eg coordinator) from the NavigationControllerContainer:
 
 ```swift
-let navigationContainer = NavigationControllerContainer(presenter: NavigationControllerDefaultPresenter.default)
+class SomeFlow: NavigationControllerContainer<NavigationControllerNewPresenter> {
+
+    override func setup() {
+        super.setup()
+        
+        //Make some navigation logic here
+    }
+    
+}
+```
+or just create an instance of this container inside your navigation class:
+
+```swift
+let someFlow = NavigationControllerContainer(presenter: NavigationControllerDefaultPresenter.default)
+```
+
+### Container usage
+
+```swift
+//Inside SomeFlow class
+private func showOtherFlow() {
+    let otherFlow = NavigationControllerContainer(presenter: NavigationControllerDefaultPresenter.default)
+    self.flowNavigation.setViewControllers([otherFlow], animated: true)
+}
 ```
 
 ### Custom Presenter with Animated Transitions
@@ -29,6 +54,7 @@ To use custom transitions, implement the `NavigationCoordinatorAnimatorType` pro
 
 ```swift
 class CustomNavigationAnimator: NSObject, NavigationCoordinatorAnimatorType {
+
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.3
     }
@@ -49,31 +75,6 @@ Then create the container with the custom presenter:
 let customPresenter = CustomNavigationPresenter()
 let navigationContainer = NavigationControllerContainer(presenter: customPresenter)
 ```
-
-## API Reference
-
-### `NavigationControllerContainer<Presenter: NavigationControllerPresenter>`
-
-A generic container that embeds a `UINavigationController` inside a parent `UIViewController`.
-
-- **Properties:**
-  - `presenter`: Defines the navigation behavior and transitions.
-  - `flowNavigation`: The embedded `UINavigationController`.
-
-### `NavigationControllerPresenter`
-
-A protocol defining the presenter responsible for handling navigation animations.
-
-- **Properties:**
-  - `controllerAnimatedTransitioning`: Defines custom animated transitions (optional).
-
-### `NavigationCoordinatorAnimatorType`
-
-A protocol extending `UIViewControllerAnimatedTransitioning` for custom navigation transitions.
-
-### `NavigationControllerDefaultPresenter`
-
-A default implementation of `NavigationControllerPresenter` with no custom animations.
 
 ## License
 
